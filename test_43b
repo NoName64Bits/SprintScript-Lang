@@ -1,0 +1,33 @@
+#43rd test of the Sprint Script programming language by #NoName
+#added arrays and string operations,value worker for the "system" class from ports
+#testing all major structures, data types and classes
+
+port system
+
+class Test public
+  method public main requires () returns void
+    repeat while(true)
+      System.print("Enter text: ")
+      var string sentence = System.getLine()
+      var string[] words = sentence.Split(' ')
+      if(sentence != "stop")
+        var int number = printArray(words)
+        System.println("Printed " + number.toString() + " components")
+      end
+      else
+        System.println("Stopping")
+        loop break
+      end
+    end
+  end
+
+  method public printArray requires (string[] elements) returns int
+    var int number = 0
+    for all(string element in elements)
+      System.print("String: ")
+      System.println(element)
+      do number++
+    end
+    this.push(number)
+  end
+end
